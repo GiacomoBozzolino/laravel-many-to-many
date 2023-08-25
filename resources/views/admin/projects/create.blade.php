@@ -20,32 +20,40 @@
             @endif
                 <form action="{{route('admin.projects.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <label class="control-label" >Title</label>
                         <input type="text" id="name" name="name" class="form-control" placeholder="name" value="{{old('name')}}">
                     </div>
                   
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <label class="control-label" >Link</label>
                         <input type="link" id="link" name="link" class="form-control" placeholder="link" value="{{old('link')}}">
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <label class="control-label" >Copertina</label>
                         <input type="file" id="img" name="img" class="form-control" placeholder="img" value="{{old('img')}}">
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <label class="control-label" >Tipologia</label>
-                        <select class="form-control" name="type_id" id="type_id">
+                        <select class="form-control " name="type_id" id="type_id">
                             <option value="0">Seleziona una tipologia</option>
                             @foreach($types as $type)
                             <option value="{{$type->id}}">{{$type->name}}</option>
                             @endforeach
                         </select>
                     </div>
+
+                    <div class="form-group mt-3">
+                        {{-- <label class="control-label" >Tecnologie utilizzate</label> --}}
+                        @foreach ($technologies as $technology)
+                            <input type="checkbox" name="technologies[]" value="{{$technology->id}}" class="form-check-input ">
+                            <label class ="form-check-label pe-2">{{$technology->name}}</label>
+                        @endforeach
+                    </div>
                     
-                    <div class=" form-group mt-2">
+                    <div class=" form-group mt-3 mt-2">
                         <button type="submit" class="btn btn-success"> Salva</button>
                     </div>
                 </form>
