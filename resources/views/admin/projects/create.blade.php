@@ -45,11 +45,10 @@
                         </select>
                     </div>
 
-                    <div class="form-group mt-3">
-                        {{-- <label class="control-label" >Tecnologie utilizzate</label> --}}
+                    <div class="form-group mt-3 d-flex">
                         @foreach ($technologies as $technology)
                         <div class="form-check @error('technologies')is-invalid @enderror">
-                            <input type="checkbox" name="technologies[]" value="{{$technology->id}}" class="form-check-input "{{in_array($technology, old('tecnologies',[]))?'checked':''}}>
+                            <input type="checkbox" name="technologies[]" value="{{$technology->id}}" class="form-check-input "{{in_array($technology->id, old('technologies',[]))?'checked':''}}>
                             <label class ="form-check-label pe-2">{{$technology->name}}</label>
                         </div>
                         @endforeach
