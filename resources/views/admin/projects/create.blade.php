@@ -48,8 +48,10 @@
                     <div class="form-group mt-3">
                         {{-- <label class="control-label" >Tecnologie utilizzate</label> --}}
                         @foreach ($technologies as $technology)
-                            <input type="checkbox" name="technologies[]" value="{{$technology->id}}" class="form-check-input ">
+                        <div class="form-check @error('technologies')is-invalid @enderror">
+                            <input type="checkbox" name="technologies[]" value="{{$technology->id}}" class="form-check-input "{{in_array($technology, old('tecnologies',[]))?'checked':''}}>
                             <label class ="form-check-label pe-2">{{$technology->name}}</label>
+                        </div>
                         @endforeach
                     </div>
                     

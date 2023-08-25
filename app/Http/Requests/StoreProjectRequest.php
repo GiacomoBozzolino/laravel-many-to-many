@@ -27,7 +27,8 @@ class StoreProjectRequest extends FormRequest
             'name'=> 'required|max:50',
             'link'=> 'required',
             'img' => 'image|max:250',
-            'type_id'=> 'required | exists:types,id'
+            'type_id'=> 'required | exists:types,id',
+            'technology_id'=> 'exists:taags,id',
         ];
     }
 
@@ -41,6 +42,7 @@ class StoreProjectRequest extends FormRequest
             'imag.max'          => 'Il nome del file non deve superare i :max caratteri.',
             'type_id.requiered' => 'Il progetto deve avere una tipologia',
             'type_id.exists'    => 'Tipologia selezionata non valida',
+            'technology_id.exists'=> 'Seleziona uno dei tag esistenti',
             
         ];
     }
