@@ -55,9 +55,14 @@ class ProjectController extends Controller
             $form_data['img']=$path;
         }
 
+        
         $project ->fill ($form_data);
         $project ->save();
-
+        
+        // DA INSERIRE DOPO IL SAVE() ALTRIMENTI DA ERRORE
+        if($request->has('technologies')){
+            $project->technologies()->attach($request->technologies);
+        }
         return redirect()->route ('admin.projects.index');
     
     }
