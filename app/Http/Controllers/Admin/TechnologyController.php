@@ -29,7 +29,9 @@ class TechnologyController extends Controller
      */
     public function create()
     {
-        //
+        
+        $technologies =Technology::all();
+        return view('admin.technologies.create', compact('technologies'));
     }
 
     /**
@@ -40,7 +42,13 @@ class TechnologyController extends Controller
      */
     public function store(StoreTechnologyRequest $request)
     {
-        //
+        $form_data= $request-> all();
+        $technology =new Technology();
+        $form_data ['slug']= $technology -> generateSlug($form_data['name']);
+
+        $technology ->fill($form_data);
+        $technology->save();
+        return redirect()->route ('admin.technologies.index');
     }
 
     /**
@@ -62,7 +70,10 @@ class TechnologyController extends Controller
      */
     public function edit(Technology $technology)
     {
-        //
+        
+        $technologies=Technology::all();
+        return view('admin.technologies.edit', compact('technologies'));
+
     }
 
     /**
