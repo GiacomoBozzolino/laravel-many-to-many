@@ -24,7 +24,16 @@ class StoreTechnologyRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'=> 'required|max:50',
+            
+        ];
+    }
+
+
+    public function messages(){
+        return [
+            'name.required'     => 'Questo tag deve avere un nome!',
+            
         ];
     }
 }

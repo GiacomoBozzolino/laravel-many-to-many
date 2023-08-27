@@ -28,7 +28,7 @@ class StoreProjectRequest extends FormRequest
             'link'=> 'required',
             'img' => 'image|max:250',
             'type_id'=> 'required | exists:types,id',
-            'technology_id'=> 'exists:taags,id',
+            'technology_id'=> 'exists:technologies,id',
         ];
     }
 
