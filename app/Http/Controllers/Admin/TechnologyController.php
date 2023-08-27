@@ -83,7 +83,19 @@ class TechnologyController extends Controller
      */
     public function update(UpdateTechnologyRequest $request, Technology $technology)
     {
-        //
+        $form_data =  $request ->all();
+    //    creazione nuovo slug
+        $form_data ['slug'] = $technology ->generateSlug($form_data['name']);
+
+        $technology ->update ($form_data);
+
+        if($request->has('projects')){
+            
+            $technology->projects()->sync($request->projects);
+
+        }
+
+        return redirect()->route ('admin.technologies.index');
     }
 
     /**
@@ -93,7 +105,10 @@ class TechnologyController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Technology $technology)
+    
     {
-        //
+        $technology->projects()->sync([]);
+        $technology->delete();
+        return redirect()->route('admin.technologies.index');
     }
 }
