@@ -27,7 +27,7 @@
                         <td>
                             @if($project->technologies)
                                 @foreach ($project->technologies as $technology)
-                                    <a href="" class="badge text-bg-primary text-decoration-none">{{$technology->name}}</a>
+                                    <a href="{{route('admin.technologies.show', $technology->id)}}" class="badge text-bg-primary text-decoration-none">{{$technology->name}}</a>
                                 @endforeach 
                             @else
                             Non sono presenti tag associati a questo progetto

@@ -11,23 +11,23 @@
           </tr>
         </thead>
         <tbody>
-            @foreach ($technologies as $techonology)
+            @foreach ($technologies as $technology)
               <tr>
-                <td>{{$techonology-> name}}</td>
-                <td>{{$techonology-> link}}</td>
-                <td>{{$techonology-> slug}}</td> 
+                <td>{{$technology-> name}}</td>
+                <td>{{$technology-> link}}</td>
+                <td>{{$technology-> slug}}</td> 
                 <td>
-                  <a href="{{route('admin.technologies.show', $techonology->id)}}" class="btn btn-primary">
+                  <a href="{{route('admin.technologies.show', $technology->id)}}" class="btn btn-primary">
                   <i class="fas fa-eye"></i>
                   </a>
                 </td> 
                 <td>
-                  <a href="{{route('admin.technologies.edit', $techonology->id)}}" class="btn btn-warning">
+                  <a href="{{route('admin.technologies.edit', $technology->id)}}" class="btn btn-warning">
                   <i class="fas fa-edit"></i>
                   </a>
                 </td>   
                 <td>
-                  <form class="techonology-delete-button d-inline-block mx-1" data-techonology-title="{{ $techonology->name }}" action="{{ route('admin.technologies.destroy', $techonology) }}" method="POST">
+                  <form class="techonology-delete-button d-inline-block mx-1" data-technology-title="{{ $technology->name }}" action="{{ route('admin.technologies.destroy', $technology) }}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger">
