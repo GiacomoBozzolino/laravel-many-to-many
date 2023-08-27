@@ -22,7 +22,6 @@
 <body>
     <div id="app">
 
-
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
@@ -86,7 +85,29 @@
         </nav>
 
         <main class="">
-            @yield('content')
+            <div class="container">
+                <div class="row">
+                    <div class="col d-flex">
+                        <div class="p-3">
+                            <ul>
+                              <li>
+                                <a href="{{route('admin.projects.index')}}">Projects</a>
+                              </li>
+                              <li>
+                                <a href="{{route('admin.technologies.index')}}">Technologies</a>
+                              </li>
+                              <li>
+                                <a href="">Category</a>
+                              </li>
+                            </ul>
+                        </div>
+                        <div class="p-3" >
+                            @yield('content')
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </main>
     </div>
 </body>

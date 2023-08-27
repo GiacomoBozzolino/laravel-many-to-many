@@ -1,8 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
- 
-    <table class="table table-striped">
+    <table class="table table-striped ">
         <thead>
           <tr>
             <th scope="col">Name</th>
@@ -12,23 +11,23 @@
           </tr>
         </thead>
         <tbody>
-            @foreach ($projects as $project)
+            @foreach ($technologies as $techonology)
               <tr>
-                <td>{{$project-> name}}</td>
-                <td>{{$project-> link}}</td>
-                <td>{{$project-> slug}}</td> 
+                <td>{{$techonology-> name}}</td>
+                <td>{{$techonology-> link}}</td>
+                <td>{{$techonology-> slug}}</td> 
                 <td>
-                  <a href="{{route('admin.projects.show', $project->id)}}" class="btn btn-primary">
+                  <a href="{{route('admin.technologies.show', $techonology->id)}}" class="btn btn-primary">
                   <i class="fas fa-eye"></i>
                   </a>
                 </td> 
                 <td>
-                  <a href="{{route('admin.projects.edit', $project->id)}}" class="btn btn-warning">
+                  <a href="{{route('admin.technologies.edit', $techonology->id)}}" class="btn btn-warning">
                   <i class="fas fa-edit"></i>
                   </a>
                 </td>   
                 <td>
-                  <form class="project-delete-button d-inline-block mx-1" data-project-title="{{ $project->name }}" action="{{ route('admin.projects.destroy', $project) }}" method="POST">
+                  <form class="techonology-delete-button d-inline-block mx-1" data-techonology-title="{{ $techonology->name }}" action="{{ route('admin.technologies.destroy', $techonology) }}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger">
@@ -40,9 +39,8 @@
         @endforeach 
       </tbody>
     </table>
-    <a href="{{route('admin.projects.create')}}" class="btn btn-sm btn-primary">Aggiungi un progetto</a>
+    <a href="{{route('admin.technologies.create')}}" class="btn btn-sm btn-primary">Aggiungi un progetto</a>
           
-    
-
+  
 @include('admin.partials.modal_delete')
 @endsection

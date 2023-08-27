@@ -6,7 +6,8 @@
         {{ __('Dashboard') }}
     </h2>
     <div class="row justify-content-center">
-        <div class="col">
+        
+        <div class="col-8">
             <div class="card">
                 <div class="card-header">{{ __('User Dashboard') }}</div>
 
@@ -21,9 +22,7 @@
                 </div>
                 
             </div>
-            
             <a class="btn btn-primary btn-md mt-2" href="{{route('admin.projects.index')}}">Gestisci i tuoi progetti</a> 
-           
         </div>
     </div>
 </div>
