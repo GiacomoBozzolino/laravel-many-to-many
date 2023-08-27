@@ -39,7 +39,7 @@
         @endforeach 
       </tbody>
     </table>
-    <a href="{{route('admin.technologies.create')}}" class="btn btn-sm btn-primary">Aggiungi un progetto</a>
+    <a href="{{route('admin.technologies.create')}}" class="btn btn-sm btn-primary">Crea un nuovo tag</a>
           
   
 @include('admin.partials.modal_delete')
